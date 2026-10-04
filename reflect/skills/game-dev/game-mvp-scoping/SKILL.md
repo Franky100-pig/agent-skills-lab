@@ -1,6 +1,7 @@
 ---
 name: game-mvp-scoping
 description: "How I decide what a new game project's first playable version contains: vertical slice method, cutting features, milestone ladder. Triggers: MVP, scope, vertical slice, new project, what to build first."
+tags: [game-dev, planning, mvp, scoping]
 ---
 
 # Game MVP Scoping

@@ -1,6 +1,7 @@
 ---
 name: raycaster-playbook
 description: "Playbook for building a pseudo-3D raycast FPS (Wolfenstein/Doom style) from scratch. Use when building or debugging a raycaster, porting one, or explaining DDA rendering. Triggers: raycaster, raycasting, pseudo-3D, DDA, wall rendering, FOV, fisheye."
+tags: [game-dev, raycasting, pseudo-3d, rendering, pygame]
 ---
 
 # Raycaster Playbook

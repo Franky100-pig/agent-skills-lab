@@ -1,6 +1,7 @@
 ---
 name: moba-design-primer
 description: "Core design concepts of MOBA games: laning, economy, hero kits, itemization, snowball control, balance process. Use when designing a MOBA hero/mode, analyzing a match, or prototyping. Triggers: MOBA, lane, hero kit, farming, itemization, snowball, balance."
+tags: [game-dev, moba, game-design, balance]
 ---
 
 # MOBA Design Primer

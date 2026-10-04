@@ -1,6 +1,7 @@
 ---
 name: fps-game-feel
 description: "Checklist for making an FPS feel good: input latency, hit feedback, recoil, crosshair states, TTK pacing, sound layering. Use when tuning gunplay, adding juice, or diagnosing that the shooting feels off. Triggers: game feel, juice, gunplay, recoil, TTK, hitmarker, screen shake."
+tags: [game-dev, game-feel, gunplay, tuning]
 ---
 
 # FPS Game Feel

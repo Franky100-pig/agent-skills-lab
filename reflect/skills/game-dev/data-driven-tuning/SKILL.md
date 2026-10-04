@@ -1,6 +1,7 @@
 ---
 name: data-driven-tuning
 description: "Workflow for game balance without code edits: externalize stats to JSON/CSV, hot-reload mid-session, log matches, turn logs into one balance decision at a time. Use when tuning weapons/heroes or analyzing match data. Triggers: balance, tuning, stats file, hot reload, match log, winrate, SQLite."
+tags: [game-dev, balance, json, telemetry]
 ---
 
 # Data-Driven Tuning

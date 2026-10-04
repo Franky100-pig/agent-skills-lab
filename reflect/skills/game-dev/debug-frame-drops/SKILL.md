@@ -1,6 +1,7 @@
 ---
 name: debug-frame-drops
 description: "Diagnose game performance problems systematically: measure frame times, profile with cProfile, find the real bottleneck before optimizing. Use when the game stutters, drops frames, or feels slow. Triggers: frame drop, stutter, lag, profiling, FPS optimization, cProfile."
+tags: [game-dev, performance, profiling, pygame]
 ---
 
 # Debug Frame Drops

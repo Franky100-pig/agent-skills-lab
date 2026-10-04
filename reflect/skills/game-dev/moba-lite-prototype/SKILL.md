@@ -1,6 +1,7 @@
 ---
 name: moba-lite-prototype
 description: "Step-by-step plan to prototype a mini-MOBA in pygame: top-down controller, auto-attacks, cooldown abilities, bot AI state machine, economy ticks, match logging. Use when building a MOBA prototype or any top-down bot arena. Triggers: MOBA prototype, top-down, auto attack, bot AI, state machine."
+tags: [game-dev, moba, pygame, prototype]
 ---
 
 # MOBA-Lite Prototype (pygame)
