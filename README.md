@@ -1,54 +1,69 @@
 # Experiment
 
-> A daily-commit lab: small runnable code experiments **and** a reflection
-> journal + skills about how I use LLMs.
+> A beginner-friendly **playground + toolkit**: small runnable code
+> experiments, and a categorized, tagged collection of reusable
+> [skills](reflect/skills/) for working with LLMs / coding agents.
 
-Two halves, one habit. Every day I make at least one meaningful commit: either
-a code experiment, a reflection note, or a skill. The goal is a real GitHub
-streak plus a searchable personal knowledge base — not heroic projects.
+This started as a personal daily-commit habit. It's becoming a tool any
+beginner developer can browse, copy from, and contribute to:
 
-## 1. Code experiments
+- **[Skills](reflect/skills/README.md)** — organized by category
+  (🎮 game-dev · 🧠 llm-context · 🎵 music-creation), tagged for filtering,
+  each ending with a "try it as an experiment" pointer.
+- **[Experiments](INDEX.md)** — small runnable programs (zero/few
+  dependencies), tagged, all verified by CI on every push.
+- **[Journal](reflect/README.md)** — LLM-usage notes with real evidence:
+  screenshots, transcripts, data — not vibes.
+
+## Quick start (2 minutes)
 
 ```bash
-python3 new_exp.py "Bouncing ball with pygame"
+git clone https://github.com/Franky100-pig/Experiment.git
+cd Experiment
+
+# run any experiment — no install step
+python3 experiments/2026-09-29_sieve_of_eratosthenes/main.py
+
+# author your own skill
+python3 new_skill.py "my-skill" --category game-dev
 ```
 
-Creates `experiments/YYYY-MM-DD_slug/` with a runnable `main.py` + `README.md`,
-and appends to [INDEX.md](INDEX.md).
+## The three daily flavors
 
-## 2. Reflection notes & skills
+| Tool | Creates | Where |
+|------|---------|-------|
+| `python3 new_exp.py "idea"` | runnable code experiment | `experiments/` |
+| `python3 new_note.py "thought"` | reflection note (with Evidence section) | `reflect/journal/` |
+| `python3 new_skill.py "name" --category game-dev` | categorized skill skeleton | `reflect/skills/<category>/` |
 
-```bash
-python3 new_note.py "Why I prefer WorkBuddy for writing"
-```
+## Contributing
 
-Creates `reflect/journal/YYYY-MM-DD_slug.md` and appends to the journal index
-in [reflect/README.md](reflect/README.md). Author reusable LLM / agent skills
-under [reflect/skills/](reflect/skills/) (start from its `_template/`).
+Beginner-friendly on purpose — no CLA, no formal gate:
+
+1. Fork / branch.
+2. Add an experiment, note, or skill (the tools above scaffold it; the
+   [skills guide](reflect/skills/README.md#contributing-a-skill-beginner-friendly-on-purpose)
+   explains the quality bar).
+3. PR with a one-line description. CI runs all experiments to keep them
+   runnable.
 
 ## Layout
 
 ```
 Experiment/
 ├── new_exp.py           # scaffold a code experiment
-├── new_note.py          # scaffold a reflection note
-├── INDEX.md             # table of code experiments
-├── experiments/
-│   └── YYYY-MM-DD_slug/{main.py, README.md}
+├── new_note.py          # scaffold a reflection note (evidence-first)
+├── new_skill.py         # scaffold a categorized skill
+├── INDEX.md             # tagged table of code experiments
+├── experiments/         # runnable, CI-verified
 └── reflect/
     ├── README.md        # journal index
-    ├── journal/         # dated reflection notes
-    └── skills/          # reusable LLM/agent skills (SKILL.md)
+    ├── journal/         # dated notes + assets/ for screenshots
+    └── skills/          # categorized, tagged SKILL.md collection
 ```
-
-## Rules I keep (loose)
-
-- One commit per day minimum; more if inspired.
-- Code experiments: zero/few deps so they run anywhere (CI runs them).
-- Reflection notes / skills: plain markdown, no build needed.
-- Every `experiments/*/main.py` should run with `python3 main.py`.
 
 ## Index
 
-- Code experiments: [INDEX.md](INDEX.md)
+- Code experiments (tagged): [INDEX.md](INDEX.md)
+- Skills by category: [reflect/skills/README.md](reflect/skills/README.md)
 - Reflection journal: [reflect/README.md](reflect/README.md)
