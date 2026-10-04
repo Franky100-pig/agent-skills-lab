@@ -1,4 +1,4 @@
-# Experiment
+# agent-skills-lab
 
 > A beginner-friendly **playground + toolkit**: small runnable code
 > experiments, and a categorized, tagged collection of reusable
@@ -18,8 +18,8 @@ beginner developer can browse, copy from, and contribute to:
 ## Quick start (2 minutes)
 
 ```bash
-git clone https://github.com/Franky100-pig/Experiment.git
-cd Experiment
+git clone https://github.com/Franky100-pig/agent-skills-lab.git
+cd agent-skills-lab
 
 # run any experiment — no install step
 python3 experiments/2026-09-29_sieve_of_eratosthenes/main.py
@@ -50,7 +50,7 @@ Beginner-friendly on purpose — no CLA, no formal gate:
 ## Layout
 
 ```
-Experiment/
+agent-skills-lab/
 ├── new_exp.py           # scaffold a code experiment
 ├── new_note.py          # scaffold a reflection note (evidence-first)
 ├── new_skill.py         # scaffold a categorized skill
