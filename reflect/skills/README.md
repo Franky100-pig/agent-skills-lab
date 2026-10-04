@@ -1,22 +1,53 @@
 # skills/
 
-Reusable LLM / agent **skills** I author — prompt and agent workflows worth
-keeping. Each skill lives in its own folder with a `SKILL.md` (YAML frontmatter
-+ instructions). The `_template/` folder is a starting point: copy it, rename,
-fill in.
+Reusable **skills** for LLM / coding agents — prompt and workflow patterns
+worth keeping, organized by category. Each skill lives in its own folder with
+a `SKILL.md` (YAML frontmatter + instructions). Copy `_template/` to author
+your own, or use the helper:
+
+```bash
+python3 new_skill.py "my-skill-name" --category game-dev
+```
 
 The format mirrors the WorkBuddy `SKILL.md` convention, so a skill authored
-here can later be dropped into `~/.workbuddy/skills/` if it proves useful.
+here can be dropped into `~/.workbuddy/skills/` (or any agent-skills loader)
+if it proves useful.
 
-## Skills index
+## Categories
 
-| Skill | What it does |
-|-------|--------------|
-| _template | Starter skeleton — clone to begin a new skill |
-| [raycaster-playbook](raycaster-playbook/SKILL.md) | Build a pseudo-3D raycast FPS: DDA, fisheye fix, sprites, wall sliding |
-| [fps-game-feel](fps-game-feel/SKILL.md) | Tuning checklist for gunplay: latency, feedback, recoil, TTK, sound |
-| [moba-design-primer](moba-design-primer/SKILL.md) | MOBA anatomy: economy, hero kits, items, snowball control, balance |
-| [moba-lite-prototype](moba-lite-prototype/SKILL.md) | Build a playable mini-MOBA in pygame, step by step |
-| [data-driven-tuning](data-driven-tuning/SKILL.md) | Balance without code edits: stats in JSON, hot-reload, match logs |
-| [debug-frame-drops](debug-frame-drops/SKILL.md) | Diagnose stutter systematically: frame-time graph, cProfile, budgets |
-| [game-mvp-scoping](game-mvp-scoping/SKILL.md) | *(stub — mine to write)* Vertical-slice scoping method |
+### 🎮 game-dev — [`game-dev/`](game-dev/)
+
+| Skill | Tags | What it does |
+|-------|------|--------------|
+| [raycaster-playbook](game-dev/raycaster-playbook/SKILL.md) | `raycasting` `pseudo-3d` `rendering` `pygame` | Build a pseudo-3D raycast FPS: DDA, fisheye fix, sprites, wall sliding |
+| [fps-game-feel](game-dev/fps-game-feel/SKILL.md) | `game-feel` `gunplay` `tuning` | Tuning checklist for gunplay: latency, feedback, recoil, TTK, sound |
+| [moba-design-primer](game-dev/moba-design-primer/SKILL.md) | `moba` `game-design` `balance` | MOBA anatomy: economy, hero kits, items, snowball control, balance |
+| [moba-lite-prototype](game-dev/moba-lite-prototype/SKILL.md) | `moba` `pygame` `prototype` | Build a playable mini-MOBA in pygame, step by step |
+| [data-driven-tuning](game-dev/data-driven-tuning/SKILL.md) | `balance` `json` `telemetry` | Balance without code edits: stats in JSON, hot-reload, match logs |
+| [debug-frame-drops](game-dev/debug-frame-drops/SKILL.md) | `performance` `profiling` `pygame` | Diagnose stutter systematically: frame-time graph, cProfile, budgets |
+| [game-mvp-scoping](game-dev/game-mvp-scoping/SKILL.md) | `planning` `mvp` `scoping` | *(stub)* Vertical-slice scoping method |
+
+### 🧠 llm-context — [`llm-context/`](llm-context/README.md)
+
+Skills for managing LLM context: prompt templates, memory conventions,
+output-format contracts. *(Empty — first skill welcome.)*
+
+### 🎵 music-creation — [`music-creation/`](music-creation/README.md)
+
+Skills for making music with code: synthesis, algorithmic composition, MIDI
+tooling. *(Empty — first skill welcome.)*
+
+## Contributing a skill (beginner-friendly on purpose)
+
+1. `python3 new_skill.py "your-skill-name" --category <category>` — or copy
+   `_template/` by hand if you prefer seeing the mechanics.
+2. Fill in the four sections: **When to use / Instructions / Pitfalls /
+   Try it as an experiment**. If you can't name a concrete experiment for it,
+   the skill is probably too vague — that's the quality bar.
+3. Add frontmatter `tags:` so the index stays filterable.
+4. Add a row to the category table above, then commit:
+   `skill: <name>`.
+
+That's the whole process. No build step, no CI gate for markdown — the
+skills live next to runnable experiments so every skill can point at
+something you can actually run.
