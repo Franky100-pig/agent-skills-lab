@@ -71,7 +71,8 @@ def main() -> None:
     title = slug.replace("-", " ").title()
     if os.path.exists(TEMPLATE):
         body = open(TEMPLATE, encoding="utf-8").read()
-        body = body.replace("name: _template", f"name: {slug}", 1)
+        for placeholder in ("name: _template", "name: skill-name"):
+            body = body.replace(placeholder, f"name: {slug}", 1)
     else:
         body = SKELETON.format(name=slug, title=title,
                                tags=category.replace("-", ", "))
