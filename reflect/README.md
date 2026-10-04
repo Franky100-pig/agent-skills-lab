@@ -12,12 +12,21 @@ daily commit — a reflection note or a skill.
 reflect/
 ├── README.md              # this file (journal index lives below)
 ├── journal/               # dated reflection notes (markdown)
+│   ├── assets/            # screenshots / charts referenced by notes
 │   └── YYYY-MM-DD_slug.md
 └── skills/                # reusable LLM/agent skills (SKILL.md format)
-    ├── README.md
+    ├── README.md          # categorized + tagged index
+    ├── game-dev/          # game-development skills
+    ├── llm-context/       # context / prompt management skills
+    ├── music-creation/    # music & synthesis skills
     └── _template/         # clone this to start a new skill
         └── SKILL.md
 ```
+
+A note is only as useful as its evidence: every journal entry has an
+**Evidence** section for screenshots, real prompt/output transcripts, or
+small data tables (images go in `journal/assets/`). "It worked better" is
+an opinion; a pasted transcript is a fact.
 
 ## Add a reflection note
 

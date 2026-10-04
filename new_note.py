@@ -55,7 +55,18 @@ def main() -> None:
     os.makedirs(JOURNAL_DIR, exist_ok=True)
     path = os.path.join(JOURNAL_DIR, f"{folder}.md")
     with open(path, "w") as f:
-        f.write(f"# {title}\n\nDate: {date}\n\nWrite your reflection here.\n")
+        f.write(
+            f"# {title}\n\n"
+            f"Date: {date}\n\n"
+            f"## What happened\n\nWrite your reflection here.\n\n"
+            f"## Evidence\n\n"
+            f"Show, don't tell — a screenshot, a paste of the actual "
+            f"prompt/output, or a small data table beats a paragraph of "
+            f"summary. Drop images in `reflect/journal/assets/` and embed "
+            f"with `![alt](assets/<file>.png)`.\n\n"
+            f"```text\n# paste real prompt / output / data here\n```\n\n"
+            f"## Takeaway\n\nOne line someone else could reuse.\n"
+        )
     update_index(date, title, folder)
     print(f"Created reflect/journal/{folder}.md")
 
