@@ -4,7 +4,7 @@
 > experiments, and a categorized, tagged collection of reusable
 > [skills](reflect/skills/) for working with LLMs / coding agents.
 
-This started as a personal daily-commit habit. It's becoming a tool any
+Originally, this is a repo for my daily commits. Now, it's becoming a tool any
 beginner developer can browse, copy from, and contribute to:
 
 - **[Skills](reflect/skills/README.md)** — organized by category
