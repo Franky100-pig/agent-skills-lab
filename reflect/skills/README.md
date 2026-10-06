@@ -37,6 +37,18 @@ output-format contracts. *(Empty — first skill welcome.)*
 Skills for making music with code: synthesis, algorithmic composition, MIDI
 tooling. *(Empty — first skill welcome.)*
 
+### ✍️ writing — [`writing/`](writing/)
+
+Descriptive prose/style diagnostics and de-AI writing repair. The `prose-*`
+skills ship a runnable `scripts/measure.py` + `tests/`, so each "try it as an
+experiment" is a real command you can run.
+
+| Skill | Tags | What it does |
+|-------|------|--------------|
+| [prose-rhythm](writing/prose-rhythm/SKILL.md) | `prose` `readability` `burstiness` `diagnostic` `english-only` | Sentence-length variation (burstiness/CV) diagnostic for English prose; flags uniform vs. choppy rhythm. No detector verdicts. |
+| [prose-lexical-variety](writing/prose-lexical-variety/SKILL.md) | `prose` `lexical-variety` `perplexity-proxy` `diagnostic` `english-only` | Lexical variety diagnostic (TTR / rare-word / entropy) for English prose; flags low vs. high variety. No detector verdicts. |
+| [sepia](writing/sepia/SKILL.md) | `writing` `de-ai` `fiction` `professional-prose` `narrative` | De-AI writing repair: narrative-architecture fixes for fiction, venue-matched rules for professional prose. Based on StoryScope (arXiv:2604.03136). |
+
 ## Contributing a skill (beginner-friendly on purpose)
 
 1. `python3 new_skill.py "your-skill-name" --category <category>` — or copy

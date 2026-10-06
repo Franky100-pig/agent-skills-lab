@@ -8,7 +8,7 @@ Originally, this is a repo for my daily commits. Now, it's becoming a tool any
 beginner developer can browse, copy from, and contribute to:
 
 - **[Skills](reflect/skills/README.md)** — organized by category
-  (🎮 game-dev · 🧠 llm-context · 🎵 music-creation), tagged for filtering,
+  (🎮 game-dev · 🧠 llm-context · 🎵 music-creation · ✍️ writing), tagged for filtering,
   each ending with a "try it as an experiment" pointer.
 - **[Experiments](INDEX.md)** — small runnable programs (zero/few
   dependencies), tagged, all verified by CI on every push.
