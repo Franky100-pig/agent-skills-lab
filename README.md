@@ -4,7 +4,7 @@
 > experiments, and a categorized, tagged collection of reusable
 > [skills](reflect/skills/) for working with LLMs / coding agents.
 
-Originally, this is a repo for my daily commits. Now, it's becoming a tool any
+Originally, this is a repo for my daily commits. Now, it is becoming a tool any
 beginner developer can browse, copy from, and contribute to:
 
 - **[Skills](reflect/skills/README.md)** — organized by category
@@ -36,11 +36,11 @@ python3 new_skill.py "my-skill" --category game-dev
 | `python3 new_note.py "thought"` | reflection note (with Evidence section) | `reflect/journal/` |
 | `python3 new_skill.py "name" --category game-dev` | categorized skill skeleton | `reflect/skills/<category>/` |
 
-## Contributing
+## Contributing Guideline
 
 Beginner-friendly on purpose — no CLA, no formal gate:
 
-1. Fork / branch.
+1. Fork.
 2. Add an experiment, note, or skill (the tools above scaffold it; the
    [skills guide](reflect/skills/README.md#contributing-a-skill-beginner-friendly-on-purpose)
    explains the quality bar).
