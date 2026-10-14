@@ -32,6 +32,15 @@ if it proves useful.
 Skills for managing LLM context: prompt templates, memory conventions,
 output-format contracts. *(Empty — first skill welcome.)*
 
+### 🖥️ macos — [`macos/`](macos/)
+
+Desktop-level housekeeping for a Mac: making an app disappear cleanly, and
+knowing which macOS guardrail will block you when it does not.
+
+| Skill | Tags | What it does |
+|-------|------|--------------|
+| [macos-hide-app](macos/macos-hide-app/SKILL.md) | `macos` `launchpad` `spotlight` `app-management` `reversible` | Hide an app from Launchpad / Applications / Spotlight / Dock without uninstalling; covers App Management protection and the `osascript` admin-prompt route |
+
 ### 🎵 music-creation — [`music-creation/`](music-creation/README.md)
 
 Skills for making music with code: synthesis, algorithmic composition, MIDI
