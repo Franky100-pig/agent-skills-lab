@@ -77,9 +77,20 @@ One line someone else could reuse.
 """
 
 
+# Slugs are filenames people read and type, so keep them short. The link text in
+# the index still carries the full title — the slug only has to be findable.
+SLUG_MAX = 48
+
+
 def slugify(title: str) -> str:
-    s = title.lower()
-    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    s = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+    if not s:
+        return "pitfall"
+    if len(s) > SLUG_MAX:
+        s = s[:SLUG_MAX]
+        if "-" in s:                       # cut at a word boundary, not mid-word
+            s = s[: s.rindex("-")]
+        s = s.strip("-")
     return s or "pitfall"
 
 
