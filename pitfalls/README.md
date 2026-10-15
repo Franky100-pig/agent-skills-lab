@@ -30,6 +30,7 @@ is an opinion.
 | [Counting bytes in a zipped file gives false positives](binary-byte-count-false-positive.md) | `docx` `pdf` `verification` | 2026-10-15 |
 | [Syncing status lies when the remote is unreachable](stale-remote-tracking-ref.md) | `git` `remote` | 2026-10-15 |
 | [Plain text extraction scrambles matrices](pdf-text-extraction-scrambles-matrices.md) | `pdf` `extraction` `math` | 2026-10-15 |
+| [Long-term memory gets truncated on injection, so a rule at the end is never read](long-term-memory-gets-truncated-on-injection-so.md) | `memory` `context` `agent-workflow` | 2026-10-15 |
 
 ## Add an entry
 
