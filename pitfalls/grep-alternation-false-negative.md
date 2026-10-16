@@ -69,6 +69,14 @@ $ grep -c 'sideTitle'  web/notes.html
 The same pattern produced a false negative **three times in one day**, each time
 briefly suggesting a file was missing content that was in fact present.
 
+It happened twice more on 2026-10-16, which is the point of writing it down:
+knowing the trap is not the same as avoiding it. Both times the pattern was
+`grep -n "foo\|bar" file`, and both times the output was empty rather than
+wrong — an empty result reads as "nothing there", not as "bad question". The
+second occurrence was *while checking this very file's index*, which is the
+most re-usable form of the lesson: the trap fires hardest exactly when you are
+verifying something you already believe.
+
 ## Takeaway
 
 Before believing "it's not in the file", re-ask the question with a single
