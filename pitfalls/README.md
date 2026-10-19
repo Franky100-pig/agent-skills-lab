@@ -33,6 +33,7 @@ is an opinion.
 | [Long-term memory gets truncated on injection, so a rule at the end is never read](long-term-memory-gets-truncated-on-injection-so.md) | `memory` `context` `agent-workflow` | 2026-10-15 |
 | [doctest reports failures but prints none of them](doctest-reports-failures-but-prints-none-of-them.md) | `python` `doctest` `verification` `streams` | 2026-10-16 |
 | [enumerating definitions by walking modules silently under-covers](enumerating-definitions-by-walking-modules.md) | `python` `introspection` `verification` `registries` | 2026-10-16 |
+| [A tool installed under `/tmp` disappears and the build fails silently](a-tool-installed-under-tmp-disappears-and-the.md) | `toolchain` `macos` `verification` `pipelines` | 2026-10-19 |
 
 ## Add an entry
 
