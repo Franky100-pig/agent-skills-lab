@@ -35,6 +35,7 @@ is an opinion.
 | [enumerating definitions by walking modules silently under-covers](enumerating-definitions-by-walking-modules.md) | `python` `introspection` `verification` `registries` | 2026-10-16 |
 | [A tool installed under `/tmp` disappears and the build fails silently](a-tool-installed-under-tmp-disappears-and-the.md) | `toolchain` `macos` `verification` `pipelines` | 2026-10-19 |
 | [A cache-bust hash that only covers JS leaves new CSS invisible](a-cache-bust-hash-that-only-covers-js-leaves.md) | `web` `caching` `build` `css` | 2026-10-19 |
+| [An unreachable file looks exactly like an empty file](an-unreachable-file-looks-exactly-like-an-empty.md) | `verification` `curl` `network` | 2026-10-19 |
 
 ## Add an entry
 
