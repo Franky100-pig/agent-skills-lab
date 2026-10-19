@@ -22,7 +22,7 @@ DIR = os.path.join(ROOT, "pitfalls")
 README = os.path.join(DIR, "README.md")
 
 INDEX_HEADER = (
-    "| Pitfall | Tags | Date |\n"
+    "| The problem | The fix | Entry |\n"
     "|---|---|---|\n"
 )
 
@@ -101,7 +101,7 @@ def update_index(date: str, title: str, slug: str) -> None:
     index is not the last thing in pitfalls/README.md (there is prose after it),
     so blindly appending would leave the row stranded under that prose.
     """
-    row = f"| [{title}]({slug}.md) | _(add tags)_ | {date} |"
+    row = f"| _(describe the problem)_ | _(describe the fix)_ | [{title}]({slug}.md) |"
 
     if not os.path.exists(README):
         with open(README, "w") as f:
@@ -113,7 +113,9 @@ def update_index(date: str, title: str, slug: str) -> None:
     lines = open(README).read().split("\n")
     start = None
     for i, ln in enumerate(lines):
-        if ln.strip() == "## Index":
+        # startswith, not ==: the heading carries a subtitle after the dash, and a
+        # rename should not silently push every future row into a second table.
+        if ln.strip().startswith("## Index"):
             start = i
             break
 
@@ -123,12 +125,18 @@ def update_index(date: str, title: str, slug: str) -> None:
             f.write("\n".join(lines) + "\n")
         return
 
-    # Walk to the table: skip the blank line(s) after the heading, then consume
-    # the contiguous block of table rows. `last` ends up on the final row.
+    # Walk to the table: the heading may be followed by blank lines AND a prose
+    # lead-in before the header row, so skip anything that is not a table row
+    # first, then consume the contiguous block of rows. `last` ends on the final row.
     i = start + 1
-    while i < len(lines) and lines[i].strip() == "":
+    while i < len(lines) and not lines[i].startswith("|"):
         i += 1
-    last = i - 1
+    if i >= len(lines):                       # heading exists but no table under it
+        lines += ["", INDEX_HEADER.rstrip("\n"), row]
+        with open(README, "w") as f:
+            f.write("\n".join(lines) + "\n")
+        return
+    last = i
     while i < len(lines) and lines[i].startswith("|"):
         last = i
         i += 1
