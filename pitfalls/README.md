@@ -41,6 +41,7 @@ Each file has the full story: how it fooled me, the 5-second tell, real output.
 | Every "remote" file reads as 0 bytes and every comparison says DIFF — the host was unreachable, not empty | Always print `%{http_code}`; compare `git hash-object` with the API blob sha instead of downloading bodies | [An unreachable file looks exactly like an empty file](an-unreachable-file-looks-exactly-like-an-empty.md) |
 | A server started with a trailing `&` answers once, then is gone by the next command (`ERR_CONNECTION_REFUSED`) | Use a managed background runner that owns the process; probe from a *different* command | [A server started with a trailing `&` is gone by the next command](a-server-started-with-a-trailing-ampersand-is.md) |
 | A section renders in the browser but the PDF/DOCX has only its heading — the converter silently drops tags it does not know (`h3`, `table`, bare-text `div`) | Teach the converter those shapes, then **assert on counts** (headings / table rows / equations) between source and output | [A section that looks fine in HTML is missing from the PDF](a-section-that-looks-fine-in-html-is-missing.md) |
+| _(describe the problem)_ | _(describe the fix)_ | [curl says the CORS preflight is fine but the browser still fails with Failed to fetch](curl-says-the-cors-preflight-is-fine-but-the.md) |
 
 Tags in use: `shell` `grep` `markdown` `pandoc` `latex` `pdf` `verification` `git`
 `memory` `python` `web` `caching` `network` `processes`.
