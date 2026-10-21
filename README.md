@@ -45,10 +45,10 @@ python3 new_skill.py "my-skill" --category game-dev
 Beginner-friendly on purpose — no CLA, no formal gate:
 
 1. Fork.
-2. Add an experiment, note, or skill (the tools above scaffold it; the
+2. Add an experiment, note, pitfall, or skill (the tools above scaffold it; the
    [skills guide](reflect/skills/README.md#contributing-a-skill-beginner-friendly-on-purpose)
    explains the quality bar).
-3. PR with a one-line description. CI runs all experiments to keep them
+3. PR with a easy description. CI runs all experiments to keep them
    runnable.
 
 ## Layout
