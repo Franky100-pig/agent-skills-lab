@@ -17,8 +17,11 @@ $ gh release view v0.2.1 --json assets,name,url
 {"assets":[],"name":"cardwall v0.2.1 — 漂浮卡片墙","url":"…/releases/tag/untagged-fa8844…"}
 ```
 
-Note the `untagged-…` URL: the draft has a *name* but no tag ref yet, which is
-how you can tell it never finished.
+The `untagged-…` URL only means "this draft has no tag ref yet" — which is the
+normal state of *any* fresh `--draft` create, including a fully successful one
+(2026-10-21: `gh release create v0.3.3 --draft` exited 0 and still printed
+`untagged-54ce0b…`). It is **not** evidence of a timeout. See "Spot it" below
+for what actually distinguishes the two.
 
 ## The wrong assumption
 
@@ -33,10 +36,20 @@ ceiling. The process got SIGTERM'd mid-upload, not rejected.
 
 ## Spot it in 5 seconds
 
+Two facts, both needed, because the URL lies:
+
 ```bash
-gh release view <tag> --json assets,draft --jq '{draft, n: (.assets|length)}'
-# draft:true, n:0  -> the create was cut off, not rejected
+gh release create <tag> --draft --title "..." --notes-file notes.md; echo "exit=$?"
+# exit=137 / "terminated"  -> the process was killed; the remote object may still exist
+gh release view <tag> --json draft,assets --jq '{draft, n: (.assets|length), names:[.assets[].name]}'
+# killed mid-upload WITH an asset argument -> draft:true, n:0  (asset is missing)
+# healthy draft                            -> draft:true, n:0  (no asset was requested)
 ```
+
+So `n:0` alone proves nothing. The discriminator is **exit status**: if
+`release create` exited 0, the draft is fine no matter how `untagged-` it looks
+— proceed to upload. Only a killed (non-zero) create whose requested asset is
+absent is a half-made draft.
 
 ## Fix
 
@@ -72,6 +85,12 @@ enough (`state` can read `uploaded` while a proxy-truncated body sits there).
 - Draft releases are the safe staging area: create, upload, verify, *then*
   publish — an unpublished draft can be fixed, a published release with a
   broken asset has already been announced.
+- **A draft also owns no git tag.** `git ls-remote --tags` and `git fetch
+  --tags` both come up empty for `v0.3.3` until you publish; the tag ref is
+  minted at `--draft=false` time. So the `untagged-<id>` URL is normal output
+  for a *successful* `--draft` create — it is not proof of a timeout. Do not
+  "fix" a healthy draft by re-running `release create`; check
+  `gh release view <tag> --json draft,assets` instead, then go publish.
 
 ## Evidence
 
@@ -84,6 +103,22 @@ stat                -> 128510935 bytes
 curl -I             -> HTTP/2 200, content-type: application/octet-stream,
                        content-length: 128510935
 after publish       -> draft:false, latest:true, body_len:2649
+```
+
+The same-looking state, but healthy (2026-10-21, v0.3.3) — nothing was wrong,
+the URL was just the untagged-draft slug:
+
+```text
+gh release create v0.3.3 --draft --notes-file notes.md
+  -> https://github.com/…/releases/tag/untagged-54ce0b672597bde0e57b
+  -> exit 0
+gh release list     -> cardwall v0.3.3 …  Draft  v0.3.3        # tag name is right
+gh release upload   -> 48s, "Successfully uploaded 2 assets"
+git ls-remote --tags -> (empty for v0.3.3, before publish)
+gh release edit --draft=false --latest
+  -> https://github.com/…/releases/tag/v0.3.3
+git rev-parse v0.3.3 -> ba18a0e301eeb6d9c7212cb9bce64702bf4cb82a
+gh release view     -> draft:false, 2 assets, bodyLen:1145
 ```
 
 ## Takeaway
